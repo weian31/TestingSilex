@@ -24,12 +24,12 @@
     });
     })
 });</script>
-    <style class="silex-inline-styles">.body-initial {background-color: rgba(255,255,255,1); position: static;}.silex-id-1478366444112-1 {background-color: transparent; position: static; margin-top: -1px;}.silex-id-1478366444112-0 {background-color: transparent; min-height: 100px; position: relative; margin-left: auto; margin-right: auto;}.silex-id-1474394621033-3 {position: static; margin-top: -1px;}.silex-id-1474394621032-2 {background-color: transparent; min-height: 600px; position: relative; margin-left: auto; margin-right: auto;}.silex-id-1478366450713-3 {background-color: transparent; position: static; margin-top: -1px;}.silex-id-1478366450713-2 {background-color: transparent; min-height: 100px; position: relative; margin-left: auto; margin-right: auto;}.silex-id-1672371796024-0 {width: 174px; min-height: 81px; position: absolute; top: -1px; left: 485px;}.silex-id-1672371820723-1 {width: 401px; min-height: 41px; background-color: rgb(255, 255, 255); position: absolute; top: 172px; left: -1px;}@media only screen and (max-width: 480px) {}</style>
+    <style class="silex-inline-styles">.body-initial {background-color: rgba(255,255,255,1); position: static;}.silex-id-1478366444112-1 {background-color: transparent; position: static; margin-top: -1px;}.silex-id-1478366444112-0 {background-color: transparent; min-height: 100px; position: relative; margin-left: auto; margin-right: auto;}.silex-id-1474394621033-3 {position: static; margin-top: -1px;}.silex-id-1474394621032-2 {background-color: transparent; min-height: 600px; position: relative; margin-left: auto; margin-right: auto;}.silex-id-1478366450713-3 {background-color: transparent; position: static; margin-top: -1px;}.silex-id-1478366450713-2 {background-color: transparent; min-height: 100px; position: relative; margin-left: auto; margin-right: auto;}.silex-id-1672371796024-0 {width: 174px; min-height: 81px; position: absolute; top: -1px; left: 485px;}.silex-id-1672371820723-1 {width: 401px; min-height: 41px; background-color: rgb(255, 255, 255); position: absolute; top: 172px; left: -1px;}.silex-id-1672379049654-3 {width: 463px; height: 204px; background-color: transparent; position: absolute; top: 354px; left: 477px;}@media only screen and (max-width: 480px) {}</style>
     <title></title>
     
 
     
-<style class="silex-prodotype-style" data-style-id="all-style">.text-element > .silex-element-content {font-family: 'Roboto', sans-serif;}</style><link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" class="silex-custom-font"><meta name="viewport" content="width=device-width, initial-scale=1"><style class="silex-style-settings">.website-width {width: 1200px;}@media (min-width: 481px) {.silex-editor {min-width: 1400px;}}</style></head>
+<style class="silex-prodotype-style" data-style-id="all-style">.text-element > .silex-element-content {font-family: 'Roboto', sans-serif;}</style><link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" class="silex-custom-font"><meta name="viewport" content="width=device-width, initial-scale=1"><style class="silex-style-settings">.website-width {width: 1200px;}@media (min-width: 481px) {.silex-editor {min-width: 1400px;}}</style><link data-dependency="" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css" rel="stylesheet"><script data-dependency="" src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script></head>
 
 <body data-silex-id="body-initial" class="body-initial all-style enable-mobile prevent-resizable prevent-selectable editable-style silex-runtime" data-silex-type="container-element" style="">
     
@@ -47,6 +47,54 @@
     </section>
     <section data-silex-type="container-element" class="container-element editable-style silex-id-1474394621033-3 section-element prevent-resizable page-page-1 paged-element" data-silex-id="silex-id-1474394621033-3">
         <div data-silex-type="container-element" class="editable-style silex-element-content silex-id-1474394621032-2 container-element website-width selected" data-silex-id="silex-id-1474394621032-2"><div data-silex-type="text-element" class="editable-style text-element silex-id-1672371796024-0" data-silex-id="silex-id-1672371796024-0" style=""><div class="silex-element-content normal"><h1>Demo Page</h1></div></div><div data-silex-type="html-element" class="editable-style html-element silex-id-1672371820723-1" data-silex-id="silex-id-1672371820723-1" style=""><div class="silex-element-content"><button type="button" onclick="TriggerAPI">Trigger API</button>
+</div></div><div data-silex-type="html-element" class="editable-style html-element silex-id-1672379049654-3 silex-component-map silex-use-height-not-minheight silex-element-content-full-height" data-silex-id="silex-id-1672379049654-3" style=""><div class="silex-element-content"><div id="mapdiv_1672379049671_469" class="map"></div>
+<style>#mapdiv_1672379049671_469 {width: 100%; height: 100%;}</style>
+<script>
+
+
+function init_1672379049671_469() {
+    if(typeof(ol) === 'undefined') {
+        // console.warn('Map not ready, restart later')
+        // wait for dependencies to be loaded
+        setTimeout(init_1672379049671_469, 1000);
+        return;
+    }
+
+    // empty the div before adding the map again
+    $('#mapdiv_1672379049671_469').empty();
+
+    // apply position and zoom
+    // from map URL http://www.openstreetmap.org/#map=18/48.88680/2.34235&layers=C
+    // var params = 'http://www.openstreetmap.org/#map=18/48.87378/2.29489&layers=C'.match(/.*map=([0-9]*)\/(.*)\/(.*)&layers=(.)/);
+    var params = 'http://www.openstreetmap.org/#map=18/48.87378/2.29489&layers=C'.match(/.*map=([0-9]*)\/(.*)\/(.*)/);
+    if(params) {
+        var zoom = parseFloat(params[1]);
+        var lat = parseFloat(params[2]);
+        var lon = parseFloat(params[3]);
+        // var layer = params[4] || 'S';
+        var center = ol.proj.fromLonLat([lon, lat]);
+        var map = new ol.Map({
+          layers: [
+            new ol.layer.Tile({
+              source: new ol.source.OSM()
+            })
+          ],
+          target: 'mapdiv_1672379049671_469',
+          view: new ol.View({
+            center: center,
+            zoom: zoom
+          })
+        });
+        
+    }
+}
+init_1672379049671_469();
+// $(document).on('silex.resize', function() {
+//     $('#mapdiv_1672379049671_469').empty();
+//     init_1672379049671_469();
+// });
+
+</script>
 </div></div></div>
     </section>
     <section data-silex-type="container-element" class="container-element editable-style silex-id-1478366450713-3 section-element prevent-resizable page-page-1 paged-element" data-silex-id="silex-id-1478366450713-3">
